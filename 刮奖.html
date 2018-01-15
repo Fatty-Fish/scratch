@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            position: absolute;
+        }
+        
+        #cxt {
+            background: url("./03.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            z-index: 10;
+        }
+        
+        #cxt1 {
+            z-index: 99;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="cxt" width=500, height=500></canvas>
+    <canvas id="cxt1" width=500, height=500></canvas>
+    <script>
+        var canvas = document.getElementById("cxt");
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "red";
+        ctx.font = "60px sans-serif";
+        ctx.fillText("恭喜你，中奖了！", 20, 250);
+
+        var canvas1 = document.getElementById("cxt1");
+        var ctx1 = canvas1.getContext("2d");
+        ctx1.fillStyle = "#ccc";
+        ctx1.fillRect(0, 0, 500, 500);
+        ctx1.globalCompositeOperation = "destination-out";
+        canvas1.onmousemove = function(event) {
+            var e = event || window.event,
+                disx = e.clientX,
+                disy = e.clientY;
+            ctx1.arc(disx, disy, 20, 0, Math.PI * 2);
+            ctx1.fill();
+        }
+    </script>
+</body>
+
+</html>
