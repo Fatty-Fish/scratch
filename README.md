@@ -18,3 +18,5 @@ H5 canvas 绘图
 globalCompositeOperation 属性设置或返回如何将一个源（新的）图像绘制到目标（已有）的图像上。
 源图像 = 打算放置到画布上的绘图。
 目标图像 = 已经放置在画布上的绘图。
+
+#### Honesty is the best policy!
